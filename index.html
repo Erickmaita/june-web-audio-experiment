@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>June Web Audio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎙️</text></svg>">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>June Web Audio</h1>
+            <p>Private, offline, browser-based transcription.</p>
+        </header>
+
+        <main>
+            <div id="drop-zone" class="drop-zone">
+                <div class="drop-content">
+                    <svg class="upload-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
+                    <p class="drop-text">Drag & Drop Audio File</p>
+                    <p class="drop-subtext">mp3, wav, m4a, ogg, opus, webm</p>
+                    <button id="browse-btn" class="secondary-btn">or Browse Files</button>
+                    <input type="file" id="file-input" hidden accept="audio/*,video/*">
+                </div>
+                <div id="status-container" class="status-container hidden">
+                    <div class="spinner"></div>
+                    <p id="status-text">Ready</p>
+                </div>
+            </div>
+
+            <div id="output-container" class="output-container hidden">
+                <div class="output-header">
+                    <h2>Transcript</h2>
+                    <button id="copy-btn" class="icon-btn" title="Copy to Clipboard">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                        <span id="copy-feedback" class="copy-feedback">Copied!</span>
+                    </button>
+                </div>
+                <textarea id="transcript-text" readonly placeholder="Transcription will appear here..."></textarea>
+            </div>
+        </main>
+
+        <footer>
+            <p>Runs entirely in browser. No data leaves your device.</p>
+        </footer>
+    </div>
+
+    <!-- App Logic -->
+    <script type="module" src="app.js"></script>
+</body>
+</html>
